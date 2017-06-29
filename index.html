@@ -1,63 +1,136 @@
 <!DOCTYPE html>
 <html>
-    <head> <!-- comment -->
+    <head>
         <meta charset="utf-8">
-        <title>HTML Practice</title>
+        <title>iMac Administrator Access Exploit</title>
     </head>
     <body>
         
     <style>
-        
+
         body {
-            padding: 10px;
-            padding-top: 0px;
+            background-color: rgb(240, 240, 240);
+            margin: 0px;
         }
+
         h1 {
-            font-size: 35pt;
-            font-family: avenir;
-            color: rgb(200, 0, 0);
-            font-weight: 600;
+            line-height: 1em;
+            margin: 0px;
+            text-align: left;
+            font-size: 30pt;
+        }
+
+        h2 {
+            margin: 2px;
+            margin-bottom: -15px;
             text-align: center;
-            text-shadow:3px 3px rgba(0,0,0, 0.2);
-            line-height: 0;
-            padding-top: 12px;
-            padding-bottom: 2px;
+            font-size: 15pt;
         }
-        #main-text {
+
+        li .bold {
+            font-weight: normal;
             text-align: justify;
-            font-size: 14pt;
-            line-height: 1.15;
-            padding-right: 20px;
+        }
+
+        .code {
+       		background-color: rgb(240, 240, 240);
+            padding: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin: 0px;
+        }
+
+        .codeline {
+            background-color: rgb(240, 240, 240);
+            padding: 1px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        ol {
+            text-align: justify;
+            font-weight: bold;
         }
         
+        p {
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+
+        #btn {
+            text-align: center;
+        }
+
+        button {
+            font-size: 11pt;
+            padding: 6px;
+            border-radius: 4px;
+            background-color: rgb(255, 255, 255);
+            border-style: solid;
+            border-width: 1px;
+        }
+        
+        #ts {
+            background-color: rgb(240, 240, 240);	
+        }
+
+        #page {
+            background-color: rgb(255, 255, 255);
+            padding: 50px;
+            margin-left: 250px;
+            margin-right: 250px;
+            height: 100vh;
+
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: rgb(220, 220, 220);
+        }
+	
     </style>
-    
-    <h1> ALL ABOUT ME!</h1>
-    
-    <div id="main-text">
-        <p> Hello, I'm <b>Kaden</b>, I have many hobbies. I am very experienced with JavaScript, HTML, and CSS. I am currently working on creating an IO game. These are some of my hobbies: </p>
-        
-        <div id="hobbies">
-            <ul>
-                
-                <li> Coding </li>
-                <li> Video Games </li>
-                <li> Swimming </li>
-                <li> Engineering </li>
-                
-            </ul>
+
+        <div id="page">
+
+            <h1> iMac Administrator Access Exploit </h1>
+
+            <hr>
+
+            <ol>
+                <li><span class="bold">Reboot computer and immediately press and hold <b>⌘S</b> to open a command line.</span></li>
+                <li><span class="bold">Once the command has finished loading, type in the following commands, hitting return after each line.</span></li>
+            </ol>
+
+            <p class="code"> mount -uw /<br>rm /var/db/.AppleSetupDone<br>rebogit ot </p>
+
+            <ol>
+                <li start="3"><span class="bold">The computer will then reboot. Once finished, insert the required info to set up a new account, but do not import new data or create an Apple ID.</span></li>
+                <li><span class="bold">Once finished, it’ll then login to the created account, which will have full admin access. <a onclick="show_ts();" href="javascript:;">Troubleshooting</a></span></li>
+            </ol>
+
+            <hr>
+
+            <span id="troubleshooting"></span>
+
         </div>
-        
-    </div>
-    
+
     </body>
     
     <script>
-        
-        var hobbies_node = document.getElementById("hobbies");
-        
-        //hobbies_node.innerHTML = "<ul><li> Cleaning Toilets </li><li> Vacuuming </li></ul>";
-        
+		
+      	var ts_node = document.
+        getElementById("troubleshooting");
+      	var button_node = document.getElementById("btn");
+
+      	var show_ts = function () {
+          	ts_node.innerHTML = '<span id="ts"><h2>Troubleshooting:</h2><p><b>How does this work?</b> This works because it opens "single user boot-up mode", which is a state where you can run commands that control the computer.<br>The first command <span class="codeline">mount -uw /</span> mounts the hard-drive to the command line so you can directly edit, remove, or add variables or values.<br>The next command <span class="codeline">rm /var/db/.AppleSetupDone</span> removes the variable called <span class="codeline">AppleSetupDone</span>. Without this variable, the computer thinks it has never been setup, so after the third command, <span class="codeline">reboot</span>, the computer will restart and walk you through setting up a new account, which has full administrator priveleges.<br><b>Is this dangerous for my computer?</b> This exploit is <b>not</b> dangerous. When I at first found it, I was a bit skeptical and backed up my computer in case things went wrong. Nothing went wrong and everything worked just as it said it would. There are obviously no viruses, because in order to install one, a link in the script above would be needed. If you are unsure, feel free to back your computer up.</p><div id="btn"><button onclick="hide_ts();"> Hide</button><hr></div></span>';
+      	};
+
+      	var hide_ts = function () {
+          	ts_node.innerHTML = " ";
+      	};
+
     </script>
     
 </html>
