@@ -24,9 +24,8 @@
 
         h2 {
             margin: 0px;
-            margin-bottom: -5px;
             font-size: 18pt;
-	    font-family: Tahoma, Geneva, sans-serif;
+            font-family: Tahoma, Geneva, sans-serif;
         }
 
         li .bold {
@@ -135,7 +134,7 @@
       	var button_node = document.getElementById("btn");
 
       	var show_ts = function () {
-          	ts_node.innerHTML = '<span id="ts"><h2>FAQs:</h2><p><b>How does this work?</b> This works because it opens "single user boot-up mode", which is a state where you can run commands that control the computer.<br>The first command <span class="codeline">mount -uw /</span> mounts the hard-drive to the command line so you can directly edit, remove, or add variables or values.<br>The next command <span class="codeline">rm /var/db/.AppleSetupDone</span> removes the variable called <span class="codeline">AppleSetupDone</span>. Without this variable, the computer thinks it has never been setup, so after the third command, <span class="codeline">reboot</span>, the computer will restart and walk you through setting up a new account, which has full administrator priveleges.<br><b>Is this dangerous for my computer?</b> This exploit is <b>not</b> dangerous. When I at first found it, I was a bit skeptical and backed up my computer in case things went wrong. Nothing went wrong and everything worked just as it said it would. There are obviously no viruses, because in order to install one, a link in the script above would be needed. If you are unsure, feel free to back your computer up.</p><div id="btn"><button onclick="hide_ts();"> Hide</button><hr></div></span>';
+          	ts_node.innerHTML = '<span id="ts"><h2>FAQs:</h2><p><b>How does this work?</b> This works because it opens "single user boot-up mode", which is a state where you can run commands that control the computer.<br>The first command <span class="codeline">mount -uw /</span> mounts the hard-drive to the command line so you can directly edit, remove, or add variables or values.<br>The next command <span class="codeline">rm /var/db/.AppleSetupDone</span> removes the variable called <span class="codeline">AppleSetupDone</span>. Without this variable, the computer thinks it has never been setup, so after the third command, <span class="codeline">reboot</span>, the computer will restart and walk you through setting up a new account, which has full administrator priveleges.<br><br><b>Is this dangerous for my computer?</b> This exploit is <b>not</b> dangerous. When I at first found it, I was a bit skeptical and backed up my computer in case things went wrong. Nothing went wrong and everything worked just as it said it would. There are obviously no viruses, because in order to install one, a link in the script above would be needed. If you are unsure, feel free to back up your computer.</p><div id="btn"><button onclick="hide_ts();"> Hide</button><hr></div></span>';
       	};
 
       	var hide_ts = function () {
