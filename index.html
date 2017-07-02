@@ -11,7 +11,7 @@
         body {
             background-color: rgb(240, 240, 240);
             margin: 0px;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Avenir;
         }
 
         h1 {
@@ -19,13 +19,13 @@
             margin: 0px;
             text-align: left;
             font-size: 30pt;
-            font-family: Tahoma, Geneva, sans-serif;
+            font-family: Avenir;
         }
 
         h2 {
             margin: 0px;
             font-size: 18pt;
-            font-family: Tahoma, Geneva, sans-serif;
+            font-family: Avenir;
         }
 
         li .bold {
@@ -74,7 +74,7 @@
             background-color: rgb(255, 255, 255);
             border-style: solid;
             border-width: 1px;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Avenir;
             cursor: pointer;
         }
         
@@ -84,11 +84,15 @@
 
         #page {
             background-color: rgb(255, 255, 255);
-            padding: 50px;
-            margin-left: 250px;
-            margin-right: 250px;
-            height: 100vh;
+            min-height: 100vh;
+            width: 60vw;
+            min-width: 400px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
+        #page-padding {
+            padding: 50px;
         }
 
         hr {
@@ -101,29 +105,33 @@
 
         <div id="page">
 
-            <h1> iMac Administrator Access Exploit </h1>
+            <div id="page-padding">
 
-            <hr>
-            
-            <p>This exploit tricks your computer into thinking it has never been setup, so it creates an administrator account with full access. This is useful for regaining control of your computer or simply just for fun. Use this exploit responsibly. All it takes is 4 easy steps listed below:</p>
+                <h1> iMac Administrator Access Exploit </h1>
 
-            <ol>
-                <li><span class="bold">Restart computer and immediately press and hold <b>⌘S</b> to open a command line.</span></li>
-                <li><span class="bold">Once the command has finished loading, type in the following commands, hitting return after each line.</span></li>
-            </ol>
+                <hr>
+                
+                <p>This exploit tricks your computer into thinking it has never been setup, so it creates an administrator account with full access. This is useful for regaining control of your computer. Use this exploit responsibly. To preform this exploit, follow the four steps listed below:</p>
 
-            <p class="code"> mount -uw /<br>rm /var/db/.AppleSetupDone<br>reboot </p>
+                <ol>
+                    <li><span class="bold">Restart computer and immediately press and hold <b>⌘S</b> to open a command line.</span></li>
+                    <li><span class="bold">Once the command has finished loading, type in the following commands, hitting return after each line.</span></li>
+                </ol>
 
-            <ol>
-                <li start="3"><span class="bold">The computer will then reboot. Once finished, insert the required info to set up a new account, but do not import new data or create an Apple ID.</span></li>
-                <li><span class="bold">Once finished, it’ll then login to the created account, which will have full admin access.</span></li>
-            </ol>
+                <p class="code"> mount -uw /<br>rm /var/db/.AppleSetupDone<br>reboot </p>
 
-            <p> If you are unsure about this exploit, you may view our <a onclick="show_ts();" href="javascript:;">FAQs</a>. 
+                <ol>
+                    <li start="3"><span class="bold">The computer will then reboot. Once finished, insert the required information to set up a new account, but do not import new data or create an Apple ID.</span></li>
+                    <li><span class="bold">Once finished, it’ll then login to the created account, which will have full administrator access.</span></li>
+                </ol>
 
-            <hr>
+                <p> If you are unsure about this exploit, you may view our <a onclick="show_ts();" href="javascript:;">FAQs</a>. 
 
-            <span id="troubleshooting"></span>
+                <hr>
+
+                <span id="troubleshooting"></span>
+
+            </div>
 
         </div>
 
@@ -135,7 +143,7 @@
       	var button_node = document.getElementById("btn");
 
       	var show_ts = function () {
-          	ts_node.innerHTML = '<span id="ts"><h2>FAQs:</h2><p><b>How does this work?</b> This works because it opens "single user boot-up mode", which is a state where you can run commands that control the computer.<br>The first command <span class="codeline">mount -uw /</span> mounts the hard-drive to the command line so you can directly edit, remove, or add variables or values.<br>The next command <span class="codeline">rm /var/db/.AppleSetupDone</span> removes the variable called <span class="codeline">AppleSetupDone</span>. Without this variable, the computer thinks it has never been setup, so after the third command, <span class="codeline">reboot</span>, the computer will restart and walk you through setting up a new account, which has full administrator priveleges.<br><br><b>Is this dangerous for my computer?</b> This exploit is <b>not</b> dangerous. When I at first found it, I was a bit skeptical and backed up my computer in case things went wrong. Nothing went wrong and everything worked just as it said it would. There are obviously no viruses, because in order to install one, a link in the script above would be needed. If you are unsure, feel free to back up your computer.</p><div id="btn"><button onclick="hide_ts();"> Hide</button><hr></div></span>';
+          	ts_node.innerHTML = '<span id="ts"><h2>FAQs:</h2><p><b>How does this work?</b> This works by having you open "single user boot-up mode", which is a command-line where you can run commands that control the computer.<br>The first command <span class="codeline">mount -uw /</span> mounts the hard-drive to the command line so you can directly edit, remove, or add variables.<br>The following command <span class="codeline">rm /var/db/.AppleSetupDone</span> removes the variable called <span class="codeline">AppleSetupDone</span>. Without this variable, the computer thinks it has never been setup. The last command is self-explanatory, and simply restarts your computer. Once restarted, it will create an account will full adminisrator access.<br><br><b>Is this harmful for my computer?</b> This exploit isn\'t harmful to your computer. I\'ve done and verified that this exploit works.<br><br><b>Does this install any viruses?</b> No, because in order to install a virus, a link would be needed to connect to a web address and download the virus.  </p><div id="btn"><button onclick="hide_ts();"> Hide</button><hr></div></span>';
       	};
 
       	var hide_ts = function () {
