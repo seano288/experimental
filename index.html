@@ -100,7 +100,7 @@
             height: 1px;
             background-color: rgb(220, 220, 220);
         }
-	
+
     </style>
 
         <div id="page">
@@ -141,6 +141,7 @@
 		
       	var ts_node = document.getElementById("troubleshooting");
       	var button_node = document.getElementById("btn");
+        var page_node = document.getElementById("page");
 
       	var show_ts = function () {
           	ts_node.innerHTML = '<span id="ts"><h2>FAQs:</h2><p><b>How does this work?</b> This works by having you open "single user boot-up mode", which is a command-line where you can run commands that control the computer.<br>The first command <span class="codeline">mount -uw /</span> mounts the hard-drive to the command line so you can directly edit, remove, or add variables.<br>The following command <span class="codeline">rm /var/db/.AppleSetupDone</span> removes the variable called <span class="codeline">AppleSetupDone</span>. Without this variable, the computer thinks it has never been setup. The last command is self-explanatory, and simply restarts your computer. Once restarted, it will create an account will full adminisrator access.<br><br><b>Is this harmful for my computer?</b> This exploit isn\'t harmful to your computer. I\'ve done and verified that this exploit works.<br><br><b>Does this install any viruses?</b> No, because in order to install a virus, a link would be needed to connect to a web address and download the virus.  </p><div id="btn"><button onclick="hide_ts();"> Hide</button><hr></div></span>';
@@ -149,6 +150,18 @@
       	var hide_ts = function () {
           	ts_node.innerHTML = " ";
       	};
+
+        var bMobile = // will be true if running on a mobile device
+            navigator.userAgent.indexOf( "Mobile" ) !== -1 || 
+            navigator.userAgent.indexOf( "iPhone" ) !== -1 || 
+            navigator.userAgent.indexOf( "Android" ) !== -1 || 
+            navigator.userAgent.indexOf( "Windows Phone" ) !== -1 ;
+
+        if (bMobile) {
+            page_node.style.maxWidth = "none";
+            page_node.style.width = "100vw";
+            page_node.style.margin = "0";
+        }
 
     </script>
     
